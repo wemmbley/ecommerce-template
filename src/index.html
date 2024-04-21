@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-@@include('components/page-blocks/_head.html', {
+@include('components/page-blocks/_head.html', {
 	"lang": "en",
 	"title": "eCommerce template",
 	"description": "Wembley eCommerce template.",
@@ -9,16 +9,16 @@
 })
 
 <body>
-	@@include('components/page-blocks/_header.html')
-	@@include('components/page-blocks/_top-menu.html')
+	@include('components/page-blocks/_header.html')
+	@include('components/page-blocks/top-menu/_top-menu.html')
 	<div class="container">
 		<div class="row">
-			@@include('components/page-blocks/_navbar.html')
+			@include('components/page-blocks/navbar/_navbar.html')
 			<main class="main"></main>
 		</div>
 	</div>
-	@@include('components/page-blocks/_footer.html')
-	@@include('components/page-blocks/_scripts.html')
+	@include('components/page-blocks/_footer.html')
+	@include('components/page-blocks/_scripts.html')
 </body>
 
 </html>

@@ -5,26 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aac91796-a2fe-4b8d-a16e-6bfaaebbe2f6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/page-blocks/_navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/page-blocks/_top-menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/neo-icons/neo-icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/neo-icons/neo-icons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/neo-icons/neo-icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/neo-icons/neo-icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/logo/logotype.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/img/social/instagram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss/blocks/_top-menu.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scss/global/_colors.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/search/_search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/search/_search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/search/_search.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/search/placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scss/_skeleton.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/css/style.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/js/main.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/main.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/sourcemaps/main.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/sourcemaps/main.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/sourcemaps/style.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/sourcemaps/style.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/bem-blocks/_sprite.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/page-blocks/_head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page-blocks/_head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/page-blocks/_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page-blocks/navbar/_navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/page-blocks/_scripts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page-blocks/_scripts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/page-blocks/_top-menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page-blocks/top-menu/_top-menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/social/instagram.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/base/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/base/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/global/_fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/global/_fonts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/global/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/global/_global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/01_main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page-blocks/navbar/_navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/blocks/_top-menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/page-blocks/top-menu/_top-menu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/global/_colors.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/global/_colors.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/dev_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/dev_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/html.js" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/html.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/rastr.js" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/rastr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/style.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +61,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/rustam/PhpstormProjects/gusto/src/img/logo",
+    "last_opened_file_path": "/Users/rustam/PhpstormProjects/gusto/src/components/search/img",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,9 +72,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/search/img" />
       <recent name="$PROJECT_DIR$/src/img/logo" />
       <recent name="$PROJECT_DIR$/src/fonts" />
       <recent name="$PROJECT_DIR$/src/img/social" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/img/search" />
+      <recent name="$PROJECT_DIR$/src/components/page-blocks/navbar" />
+      <recent name="$PROJECT_DIR$/src/components/page-blocks/top-menu" />
+      <recent name="$PROJECT_DIR$/src/components/search" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -85,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713470958247</updated>
       <workItem from="1713470959412" duration="4387000" />
-      <workItem from="1713550807504" duration="18340000" />
+      <workItem from="1713550807504" duration="39408000" />
     </task>
     <servers />
   </component>
