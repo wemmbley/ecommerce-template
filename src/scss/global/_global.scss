@@ -1,7 +1,8 @@
 *,
-*::before,
-*::after {
+*::before:not([class^="i-neo-"]),
+*::after:not([class^="i-neo-"]) {
 	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .flex {
@@ -63,4 +64,15 @@ h4,
 h5,
 h6 {
 	margin: 0;
+}
+
+ul {
+	margin: 0;
+	li {
+		list-style: none;
+	}
+}
+
+a {
+	text-decoration: none;
 }

@@ -2,3 +2,80 @@
 @import 'global/*.scss';
 @import '**/_*.scss';
 @import '../components/**/*.scss';
+
+.icon {
+  color: $gray-dark;
+  font-size: 32px;
+  cursor: pointer;
+  &:hover {
+    color: $primary-color-dark;
+  }
+}
+.navbar {
+  height: 100px;
+  .navbar-first-block {
+    display: flex;
+    .logo {
+      height: 70px;
+      margin-right: 40px;
+      cursor: pointer;
+      &:hover {
+        animation: pulse;
+        animation-duration: 1.2s;
+      }
+    }
+    .burger-menu {
+      .icon {
+        padding-top: 20px;
+        margin-right: 15px;
+        margin-left: 10px;
+      }
+    }
+    .menu-button {
+      margin-top: 15px;
+      cursor: pointer;
+      user-select: none;
+      align-items: center;
+      padding-left: 15px;
+      width: 140px;
+      background-color: $primary-color;
+      display: flex;
+      color: $white;
+      height: 40px;
+      text-transform: uppercase;
+      &:hover {
+        background-color: $primary-color-dark;
+      }
+      .text {
+        margin-left: 15px;
+      }
+    }
+  }
+  .navbar-second-block {
+    margin-top: 10px;
+    margin-right: 10px;
+    .icon {
+      padding-left: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .menu-button {
+    display: none !important;
+  }
+  .burger-menu {
+    display: flex !important;
+  }
+}
+@media screen and (max-width: 390px) {
+  .logo {
+    display: none !important;
+  }
+  .burger-menu {
+    display: flex !important;
+    .icon {
+      padding-top: 0 !important;
+    }
+  }
+}
