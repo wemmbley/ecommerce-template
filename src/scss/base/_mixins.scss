@@ -58,3 +58,12 @@
 	padding: 0 #{$padding};
 	margin: 0 auto;
 }
+
+@mixin dark-link() {
+	a {
+		color: $white;
+		&:hover {
+			color: $primary-color
+		}
+	}
+}
