@@ -8,7 +8,7 @@ const map = require('gulp-sourcemaps');
 const bs = require('browser-sync');
 
 module.exports = function dev_js() {
-	return src(['src/components/**/*.js', 'src/js/01_main.js'])
+	return src(['src/components/**/*.js', 'src/js/main.js'])
 		.pipe(map.init())
 		.pipe(uglify())
 		.pipe(concat('main.min.js'))

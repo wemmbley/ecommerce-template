@@ -1,0 +1,43 @@
+<div class="search-block d-none" id="searchContainer">
+    <input type="text" placeholder="Введите поисковую фразу" class="search-box border" id="searchInput">
+    <div class="results">
+
+        <!-- =================  P R E L O A D I N G ================= -->
+        <div class="preloader d-none" id="preloader">
+            @for (var i = 0; i < 6; i++) {
+                <div class="item">
+                    <a href="#" class="d-flex">
+                        <div class="first-block">
+                            <div class="skeleton dummy"></div>
+                        </div>
+                        <div class="second-block">
+                            <p class="title skeleton skeleton-text"></p>
+                            <p class="title skeleton skeleton-text"></p>
+                            <p class="title skeleton skeleton-text"></p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+
+        <!-- =================  N O T H I N G   F O U N D ================= -->
+        <div class="item d-none" id="emptyResults">
+            <div class="nothing-found">
+                <p>К сожалению, ничего не найдено.</p>
+            </div>
+        </div>
+
+        <!-- ========================  R E S U L T S ======================== -->
+        <div class="item d-none" id="resultSkeleton">
+            <a href="#" class="d-flex">
+                <div class="first-block">
+                    <img src="img/search/placeholder.png" alt="" class="preview">
+                </div>
+                <div class="second-block">
+                    <p class="title">Product name</p>
+                    <p class="description">Short product description for describe it in few lines.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
