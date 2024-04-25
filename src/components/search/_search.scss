@@ -1,7 +1,6 @@
 .search-block {
   position: absolute;
-  right: 16vw;
-  top: 4rem;
+  right: 3.5em;
   width: 24rem;
   max-height: 22rem;
   overflow: scroll;
@@ -72,42 +71,17 @@
 }
 
 @media screen and (max-width: 992px) {
+  .navbar {
+    position: relative;
+    .navbar-second-block {
+      .search {
+        position: static;
+      }
+    }
+  }
   .search-block {
     width: 100%;
-    position: relative;
     left: 0;
-    top: 0;
-  }
-}
-
-// why positions: absolute sucks? because.
-@media screen and (min-width: 1090px) {
-  .search-block {
-    right: 18vw;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .search-block {
-    right: 18vw;
-  }
-}
-@media screen and (min-width: 1700px) {
-  .search-block {
-    right: 20vw;
-  }
-}
-@media screen and (min-width: 1800px) {
-  .search-block {
-    right: 22vw;
-  }
-}
-@media screen and (min-width: 2000px) {
-  .search-block {
-    right: 24vw;
-  }
-}
-@media screen and (min-width: 4000px) {
-  .search-block {
-    right: 37vw;
+    top: 12vh;
   }
 }
