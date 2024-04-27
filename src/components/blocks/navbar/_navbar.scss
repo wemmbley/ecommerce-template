@@ -1,21 +1,24 @@
 .navbar {
-  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 4rem;
   .navbar-first-block {
     display: flex;
+    align-items: center;
     .logo {
-      height: 4.5rem;
-      margin-right: 2.2rem;
+      height: 3.5rem;
+      margin-right: 1.2rem;
       cursor: pointer;
     }
     .burger-menu {
       .icon {
-        padding-top: 20px;
         margin-right: 15px;
         margin-left: 10px;
       }
     }
     .menu-button {
-      margin-top: 15px;
       cursor: pointer;
       user-select: none;
       align-items: center;
@@ -36,10 +39,9 @@
   }
   .navbar-second-block {
     display: flex;
-    margin-top: 10px;
     margin-right: 10px;
     .icon {
-      padding-left: 15px;
+      padding-left: 1.5rem;
     }
     .search {
       position: relative;
