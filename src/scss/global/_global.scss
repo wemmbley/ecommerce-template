@@ -5,38 +5,56 @@
 	font-family: 'Montserrat', sans-serif;
 }
 
-.flex {
+body {
+	overflow-x: hidden;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 1430px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.d-flex {
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-start;
 }
+.d-none {
+	display: none;
+}
+.d-block {
+	display: block;
+}
 
-.--just-space {
+.js-between {
 	justify-content: space-between;
 }
-
-.--just-center {
+.js-center {
 	justify-content: center;
 }
-
-.--just-end {
+.js-end {
 	justify-content: flex-end;
 }
 
-.--align-str {
+.ai-str {
 	align-items: stretch;
 }
-
-.--align-center {
+.ai-center {
 	align-items: center;
 }
-
-.--align-end {
+.ai-end {
 	align-items: flex-end;
 }
 
-.--dir-col {
+.fd-col {
 	flex-direction: column;
+}
+.fd-row {
+	flex-direction: row;
 }
 
 html {
