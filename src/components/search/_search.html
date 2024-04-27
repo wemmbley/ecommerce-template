@@ -1,14 +1,12 @@
-<!-- search-block-active-->
-<div class="search-block search-block-active" id="searchContainer">
+<div class="search-block search-block-active d-none" id="searchContainer">
     <form autocomplete="off">
-        <input type="text" placeholder="Введите поисковую фразу" class="search-box border" id="searchInput">
+        <input type="text" placeholder="Введите поисковую фразу" class="search-box border searchInput d-none">
     </form>
 
     <div class="results">
 
-
         <!-- =================  P R E L O A D I N G ================= -->
-        <div class="preloader" id="preloader">
+        <div class="preloader d-none" id="preloader">
             @for (var i = 0; i < 6; i++) {
                 <div class="item">
                     <a href="#" class="d-flex">
@@ -36,7 +34,7 @@
         <div class="item d-none" id="resultSkeleton">
             <a href="#" class="d-flex">
                 <div class="first-block">
-                    <img src="img/search/placeholder.png" alt="" class="preview">
+                    <img src="" alt="" class="preview">
                 </div>
                 <div class="second-block">
                     <p class="title">Product name</p>
