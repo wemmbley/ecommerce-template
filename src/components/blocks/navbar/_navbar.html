@@ -5,16 +5,21 @@
         </div>
         <img src="img/logo/logotype.png" alt="logotype" class="logo">
         <div class="menu-button">
-            <span class="i-neo-menu"></span>
+            <span class="i-neo-squares-filled"></span>
             <p class="text">Каталог</p>
         </div>
     </div>
     <div class="navbar-second-block">
         <div class="search">
             @include('../../search/_search.html')
-            <span class="i-neo-search icon" id="search"></span>
+            <span class="i-neo-search icon hover-color-blue" id="search"></span>
         </div>
-        <span class="i-neo-user icon"></span>
-        <span class="i-neo-cart icon"></span>
+        <div class="cart">
+            @include('../../cart/_cart.html')
+            <div class="open-cart" id="cart">
+                <span class="i-neo-cart-filled icon"></span>
+                <span class="cart-counter hide" id="cartCounter">0</span>
+            </div>
+        </div>
     </div>
 </nav>

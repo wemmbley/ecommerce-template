@@ -1,4 +1,4 @@
-const __SEARCH_ROUTE = 'https://jsonplaceholder.typicode.com/photos?_limit=10';
+const __SEARCH_ROUTE = 'https://f840f620732c48fca100ec92af65a439.api.mockbin.io/';
 const __SEARCH_SLEEP = 1000;
 
 class Search
@@ -34,6 +34,7 @@ class Search
 
             neo(this.container).show();
             neo(this.searchbar).show();
+            neo(this.searchbar).focus();
         });
 
         neo(this.searchbar).on('userTyping', () => {
@@ -49,20 +50,7 @@ class Search
                 return;
             }
 
-            neo()
-                .ajax(__SEARCH_ROUTE)
-                .then((response) => response.json())
-                .then((json) => {
-                    neo(this.preloader).hide();
-
-                    if(json.length === 0) {
-                        neo(this.nothingFound).show();
-
-                        return;
-                    }
-
-                    this.insertSearchResults(json);
-                });
+            this.fetchResultsFromServer();
         }, {sleep: __SEARCH_SLEEP});
 
         neo(this.container).on('userCancelAction', () => {
@@ -79,6 +67,24 @@ class Search
         }, {skipElements: [searchBtn]});
     }
 
+    static fetchResultsFromServer()
+    {
+        neo()
+            .ajax(__SEARCH_ROUTE)
+            .then((response) => response.json())
+            .then((json) => {
+                neo(this.preloader).hide();
+
+                if(json.length === 0) {
+                    neo(this.nothingFound).show();
+
+                    return;
+                }
+
+                this.insertSearchResults(json);
+            });
+    }
+
     static insertSearchResults(results) {
         this.clearSearchResults();
 
@@ -89,11 +95,43 @@ class Search
             $resultNode.show();
             $resultNode.addClass('search-result-item');
 
-            neo($resultNode.select('a')).prop('href', '/photo/' + result.id);
+            //
+            // required fields first
+            //
+            neo($resultNode.select('a')).prop('href', result.url);
             neo($resultNode.select('.preview')).prop('src', result.thumbnailUrl);
             neo($resultNode.select('.title')).text(result.title);
 
-            this.resultSkeleton.closest('.results').insertAdjacentElement('afterbegin', resultNode);
+            //
+            // not required fields
+            //
+            let $price = neo($resultNode.select('.price'));
+
+            if(result.price !== undefined) {
+                $price.text(result.price);
+                $price.show();
+            }
+
+            if(result.discount !== undefined
+                && result.discount.oldPrice !== undefined
+                && result.discount.newPrice !== undefined) {
+                let $oldPrice = neo($resultNode.select('.old-price'));
+
+                $oldPrice.text(result.discount.oldPrice);
+                $price.text(result.discount.newPrice);
+
+                $oldPrice.show();
+                $price.show();
+            }
+
+            if(result.description !== undefined) {
+                let $description = neo($resultNode.select('.description'));
+
+                $description.text(result.description);
+                $description.show();
+            }
+
+            this.resultSkeleton.closest('.results').insertAdjacentElement('beforeend', resultNode);
         });
     }
 

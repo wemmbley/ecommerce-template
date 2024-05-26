@@ -77,6 +77,10 @@ class Neo {
         this.el.innerText = text;
     }
 
+    focus() {
+        this.el.focus();
+    }
+
     onActionCancelled(callback, options) {
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
@@ -90,11 +94,30 @@ class Neo {
 
             let isSkip = false;
 
-            skipElements.forEach((el) => {
-                if (target === el) {
-                    isSkip = true;
+            if(skipElements !== undefined) {
+                function checkElementAndChildren(element, target) {
+                    if (element === target) {
+                        return true;
+                    }
+
+                    if (element.children) {
+                        for (let i = 0; i < element.children.length; i++) {
+                            const child = element.children[i];
+                            if (checkElementAndChildren(child, target)) {
+                                return true;
+                            }
+                        }
+                    }
+
+                    return false;
                 }
-            });
+
+                skipElements.forEach((el) => {
+                    if (checkElementAndChildren(el, target)) {
+                        isSkip = true;
+                    }
+                });
+            }
 
             if (!this.el.contains(target) && !isSkip) {
                 callback();
