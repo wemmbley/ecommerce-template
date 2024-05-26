@@ -11,10 +11,12 @@
   font-weight: 200;
   @include dark-link();
   .lang-selector {
+    user-select: none;
     a:after {
       content: '|';
       padding-left: 5px;
       padding-right: 2px;
+      user-select: none;
     }
     a:hover::after {
       color: white;

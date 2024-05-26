@@ -1,0 +1,97 @@
+[
+  {
+    "totalPrice": "9 000 грн",
+    "totalPriceWithoutDiscount": "11 900 грн",
+    "products": [
+      {
+        "id": 1,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "url": "https://via.placeholder.com/600/92c952",
+        "thumbnailUrl": "https://via.placeholder.com/150/92c952",
+        "thumbnailAltText": "lorem ipsumed",
+        "discount": {
+          "oldPrice": "12000 UAH",
+          "newPrice": "9800 UAH",
+          "discountEnds": "2024-12-12 00:00:00"
+        }
+      },
+      {
+        "id": 2,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "url": "https://via.placeholder.com/600/92c952",
+        "thumbnailUrl": "https://via.placeholder.com/150/24f355",
+        "discount": {
+          "oldPrice": "9000 UAH",
+          "newPrice": "5800 UAH",
+          "discountEnds": "2024-12-12 00:00:00"
+        }
+      },
+      {
+        "id": 3,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "12 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/771796"
+      },
+      {
+        "id": 4,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "11 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+      },
+      {
+        "id": 5,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "12 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/771796"
+      },
+      {
+        "id": 6,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "11 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+      },
+      {
+        "id": 7,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "12 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/771796"
+      },
+      {
+        "id": 8,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "11 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+      },
+      {
+        "id": 9,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "12 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/771796"
+      },
+      {
+        "id": 10,
+        "count": 1,
+        "title": "accusamus beatae ad facilis cum similique qui sunt",
+        "price": "11 999 UAH",
+        "url": "https://via.placeholder.com/600/771796",
+        "thumbnailUrl": "https://via.placeholder.com/150/d32776"
+      }
+    ]
+  }
+]

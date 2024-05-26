@@ -1,3 +1,6 @@
+//
+// Main settings.
+//
 *,
 *::before:not([class^="i-neo-"]),
 *::after:not([class^="i-neo-"]) {
@@ -11,52 +14,6 @@ body {
 	font-weight: 300;
 }
 
-.wrapper {
-	width: 100%;
-	max-width: 1430px;
-	padding: 0 15px;
-	margin: 0 auto;
-}
-
-.d-flex {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-}
-.d-none {
-	display: none;
-}
-.d-block {
-	display: block;
-}
-
-.js-between {
-	justify-content: space-between;
-}
-.js-center {
-	justify-content: center;
-}
-.js-end {
-	justify-content: flex-end;
-}
-
-.ai-str {
-	align-items: stretch;
-}
-.ai-center {
-	align-items: center;
-}
-.ai-end {
-	align-items: flex-end;
-}
-
-.fd-col {
-	flex-direction: column;
-}
-.fd-row {
-	flex-direction: row;
-}
-
 html {
 	font-size: 16px;
 }
@@ -66,7 +23,6 @@ body {
 	min-height: 100%;
 	position: relative;
 }
-
 body {
 	font-size: 1rem;
 }
@@ -93,4 +49,183 @@ ul {
 
 a {
 	text-decoration: none;
+}
+
+.scroll {
+	scrollbar-width: thin;
+	scrollbar-color: #ccc #f3f3f3;
+}
+
+//
+// Container.
+//
+.wrapper {
+	width: 100%;
+	max-width: 1430px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+//
+// Flex.
+//
+.d-flex {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+.d-none {
+	display: none;
+}
+.d-block {
+	display: block;
+}
+.flex-between {
+	justify-content: space-between;
+}
+.flex-center {
+	justify-content: center;
+}
+.flex-end {
+	justify-content: flex-end;
+}
+.ai-str {
+	align-items: stretch;
+}
+.ai-center {
+	align-items: center;
+}
+.ai-end {
+	align-items: flex-end;
+}
+.fd-col {
+	flex-direction: column;
+}
+.fd-row {
+	flex-direction: row;
+}
+
+//
+// Max-height and widths.
+//
+@for $i from 1 through 10 {
+	.max-h-#{$i}00 {
+		max-height: #{$i}00px; // 100, 200, 300...
+	}
+	.max-h-#{$i}50 {
+		max-height: #{$i}50px; // 150, 250, 350...
+	}
+	.min-h-#{$i}00 {
+		min-height: #{$i}00px;
+	}
+	.min-h-#{$i}00 {
+		min-height: #{$i}50px;
+	}
+
+	.max-w-#{$i}00 {
+		max-width: #{$i}00px;
+	}
+	.max-w-#{$i}50 {
+		max-width: #{$i}50px;
+	}
+	.min-w-#{$i}00 {
+		min-width: #{$i}00px;
+	}
+	.min-w-#{$i}50 {
+		min-width: #{$i}50px;
+	}
+}
+.w-auto {
+	width: auto;
+}
+.w-100-percents {
+	width: 100%;
+}
+.h-auto {
+	height: auto;
+}
+.h-100-percents {
+	height: 100%;
+}
+
+//
+// Margins and paddings.
+//
+@for $i from 1 through 50 {
+	.pb-#{$i} {
+		padding-bottom: #{$i}px;
+	}
+	.pt-#{$i} {
+		padding-top: #{$i}px;
+	}
+	.pl-#{$i} {
+		padding-left: #{$i}px;
+	}
+	.pr-#{$i} {
+		padding-right: #{$i}px;
+	}
+	.p-#{$i} {
+		padding: #{$i}px;
+	}
+
+	.mb-#{$i} {
+		margin-bottom: #{$i}px;
+	}
+	.mt-#{$i} {
+		margin-top: #{$i}px;
+	}
+	.ml-#{$i} {
+		margin-left: #{$i}px;
+	}
+	.mr-#{$i} {
+		margin-right: #{$i}px;
+	}
+	.m-#{$i} {
+		margin: #{$i}px;
+	}
+}
+//
+// Fonts.
+//
+@for $i from 9 through 50 {
+	.fs-#{$i} {
+		font-size: #{$i}px !important;
+	}
+}
+@for $i from 1 through 10 {
+	.fw-#{$i} {
+		font-weight: #{$i}00 !important;
+	}
+}
+
+//
+// Other
+//
+.margin-center {
+	margin: 0 auto;
+}
+.hide-absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.bubble {
+	cursor: pointer;
+	transition: transform .4s ease;
+	&:hover {
+		transform: translate3D(0,-1px,0) scale(1.02);
+		transition: transform .4s ease;
+	}
+}
+.pointer {
+	cursor: pointer;
+}
+.hover-color-blue {
+	&:hover {
+		color: #447ed5;
+	}
+}
+.hide {
+	opacity: 0;
 }

@@ -1,0 +1,49 @@
+<div class="cart-wrapper d-none">
+    <div class="small-cart">
+        <div class="cart-header d-flex flex-between">
+            <h2>Корзина</h2>
+            <i class="i-neo-close fs-20 pr-20 fw-7 pointer hover-color-blue" id="closeCart"></i>
+        </div>
+        <div class="cart-items scroll" id="cartItems">
+            <div class="item d-none" id="productSkeleton">
+                <div class="item-first-block">
+                    <div class="image-block">
+                        <span class="i-neo-bin icon remove"></span>
+                        <div class="preview">
+                            <img src="img/search/placeholder.png" alt="">
+                        </div>
+                    </div>
+                    <div class="title-block">
+                        <a href="#" class="title">–</a>
+                    </div>
+                </div>
+                <div class="item-second-block">
+                    <p class="price">–</p>
+                    <div class="counter">
+                        <button class="decrease" disabled="disabled"><</button>
+                        <input type="text" value="1" id="itemsCount">
+                        <button class="increase">></button>
+                    </div>
+                    <div class="price-second">
+                        <div class="price-discount">
+                            <span class="old-price d-none">–</span>
+                            <span class="new-price">–</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+        <div class="result">
+            <div class="empty" id="emptyCartMessage">
+                <p>Ваша корзина пуста :( <br>Наш ассортимент доступен <a href="#">здесь</a>.</p>
+            </div>
+            <div class="result-price d-none">
+                <p class="sum-title">Итого</p>
+                <p class="new-price">9 900 грн</p>
+                <p class="old-price d-none">11 000 грн</p>
+            </div>
+            <a class="make-order-btn d-none" href="#">Оформить заказ</a>
+        </div>
+    </div>
+</div>
