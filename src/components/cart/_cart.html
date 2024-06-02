@@ -8,7 +8,7 @@
             <div class="item d-none" id="productSkeleton">
                 <div class="item-first-block">
                     <div class="image-block">
-                        <span class="i-neo-bin icon remove"></span>
+                        <span class="i-neo-bin icon remove" id="removeFromCart"></span>
                         <div class="preview">
                             <img src="img/search/placeholder.png" alt="">
                         </div>
@@ -20,9 +20,13 @@
                 <div class="item-second-block">
                     <p class="price">–</p>
                     <div class="counter">
-                        <button class="decrease" disabled="disabled"><</button>
+                        <div class="decrease-wrapper">
+                            <button class="decrease" disabled="disabled"><</button>
+                        </div>
                         <input type="text" value="1" id="itemsCount">
-                        <button class="increase">></button>
+                        <div class="increase-wrapper">
+                            <button class="increase">></button>
+                        </div>
                     </div>
                     <div class="price-second">
                         <div class="price-discount">
@@ -40,10 +44,12 @@
             </div>
             <div class="result-price d-none">
                 <p class="sum-title">Итого</p>
-                <p class="new-price">9 900 грн</p>
-                <p class="old-price d-none">11 000 грн</p>
+                <p class="new-price">–</p>
+                <p class="old-price d-none">–</p>
             </div>
             <a class="make-order-btn d-none" href="#">Оформить заказ</a>
         </div>
     </div>
+    <div class="tooltip" id="minProductsLimitTooltip" role="tooltip">Достигнуто минимальное количество товаров!</div>
+    <div class="tooltip" id="maxProductsLimitTooltip" role="tooltip">Достигнуто максимальное количество товаров!</div>
 </div>

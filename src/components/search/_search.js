@@ -1,6 +1,3 @@
-const __SEARCH_ROUTE = 'https://f840f620732c48fca100ec92af65a439.api.mockbin.io/';
-const __SEARCH_SLEEP = 1000;
-
 class Search
 {
     // Nodes
@@ -51,7 +48,7 @@ class Search
             }
 
             this.fetchResultsFromServer();
-        }, {sleep: __SEARCH_SLEEP});
+        }, {sleep: env.SEARCH_SLEEP});
 
         neo(this.container).on('userCancelAction', () => {
             if(!this.isSearchBarOpened) {
@@ -70,7 +67,7 @@ class Search
     static fetchResultsFromServer()
     {
         neo()
-            .ajax(__SEARCH_ROUTE)
+            .ajax(env.SEARCH_ROUTE)
             .then((response) => response.json())
             .then((json) => {
                 neo(this.preloader).hide();

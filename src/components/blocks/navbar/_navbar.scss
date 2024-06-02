@@ -71,6 +71,10 @@
     }
   }
 }
+.i-neo-cart-filled:hover:before,
+.i-neo-search:hover:before {
+  color: #447ed5;
+}
 
 @media screen and (max-width: 770px) {
   .menu-button {

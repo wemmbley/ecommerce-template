@@ -180,4 +180,59 @@ class Neo {
             element.remove();
         });
     }
+
+    // ============================================================================
+    //  Sessions.
+    // ============================================================================
+    sessionPush(key, element) {
+        let array = sessionStorage.getItem(key);
+
+        if (!array) {
+            array = [];
+        } else {
+            array = JSON.parse(array);
+        }
+
+        if(Array.isArray(array)) {
+            array.push(element);
+        }
+
+        sessionStorage.setItem(key, JSON.stringify(array));
+    }
+
+    sessionGet(key)
+    {
+        return JSON.parse(sessionStorage.getItem(key));
+    }
+
+    sessionRemove(key)
+    {
+        sessionStorage.removeItem(key);
+    }
+
+    sessionRemoveItem(key, item, objItem = null)
+    {
+        let sessionItem = sessionStorage.getItem(key);
+
+        if (!sessionItem) {
+            return;
+        }
+
+        sessionItem = JSON.parse(sessionItem);
+
+        sessionItem = sessionItem.filter(currentItem => {
+            if(objItem !== null) {
+                return currentItem[objItem] !== item;
+            }
+
+            return currentItem !== item;
+        });
+
+        sessionStorage.setItem(key, JSON.stringify(sessionItem));
+    }
+
+    sessionUpdateItem(key, item, newValue)
+    {
+        // dummy
+    }
 }

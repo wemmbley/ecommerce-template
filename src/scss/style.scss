@@ -11,3 +11,13 @@
     color: $primary-color-dark;
   }
 }
+.tooltip {
+  position: absolute;
+  background-color: #2f2f2f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  display: none;
+  z-index: 10;
+}

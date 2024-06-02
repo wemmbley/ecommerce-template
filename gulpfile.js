@@ -20,6 +20,7 @@ exports.bs_html = tasks.bs_html;
 exports.bs_php = tasks.bs_php;
 exports.watch = tasks.watch;
 exports.deploy = tasks.deploy;
+exports.dotenv = tasks.dotenv;
 
 exports.default = gulp.parallel(
   exports.libs_style,
@@ -35,6 +36,7 @@ exports.default = gulp.parallel(
   exports.svg_sprite,
   exports.html,
   exports.bs_html,
+  exports.dotenv,
   exports.watch
 )
 exports.dev_php = gulp.parallel(
@@ -51,5 +53,6 @@ exports.dev_php = gulp.parallel(
   exports.svg_sprite,
   exports.php,
   exports.bs_php,
-  exports.watch
+  exports.dotenv,
+  exports.watch,
 )
