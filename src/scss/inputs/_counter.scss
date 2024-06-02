@@ -8,6 +8,7 @@
     border-color: hsla(0, 0%, 56.5%, .5);
   }
   button {
+    user-select: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +28,12 @@
       border-left: 1px solid #e7e7e7;;
     }
     &:hover {
-      background-color: #f8f8f8;
+      background-color: #eef5fa;
     }
     &[disabled] {
       pointer-events: none;
       color: $gray;
+      background-color: #fafafa;
     }
   }
   input {

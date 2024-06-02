@@ -5,6 +5,7 @@ const {
 } = require('gulp');
 
 module.exports = function watching() {
+    watch('.env', parallel('dotenv'));
     watch('src/**/*.html', parallel('html'));
     watch('src/**/*.php', parallel('php'));
     watch('src/**/*.scss', parallel('style'));

@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "title": "accusamus beatae ad facilis cum similique qui sunt",
+  "url": "https://via.placeholder.com/600/92c952",
+  "image": {
+    "preview": "https://via.placeholder.com/150/92c952",
+    "medium": "https://via.placeholder.com/150/92c952",
+    "original": "https://via.placeholder.com/150/92c952",
+    "altText": "lorem ipsumed"
+  },
+  "price": {
+    "value": "7800",
+    "unit": "UAH"
+  },
+  "discount": {
+    "oldPrice": "12000",
+    "newPrice": "7800",
+    "unit": "UAH",
+    "discountEnds": "2024-12-12 00:00:00"
+  },
+  "total": {
+    "value": "9 000",
+    "valueWithoutDiscount": "11 900",
+    "unit": "UAH"
+  },
+  "cart": {
+    "count": 3,
+    "min": 1,
+    "max": -1
+  }
+}
