@@ -9,18 +9,27 @@ class Auth
             })
             .then((response) => response.json())
             .then((json) => {
-                console.log(json)
-
-                localStorage.setItem('token', json.token);
+                neo().sessionRemove('token');
+                neo().sessionPush('token', json.token);
             })
             .catch(error => {
                 console.error('Error logging in:', error);
             });
     }
 
+    static logout()
+    {
+        neo().sessionRemove('token');
+    }
+
     static check()
     {
-        const token = localStorage.getItem('token');
+        return !empty(neo().sessionGet('token'));
+    }
+
+    static requestCheck()
+    {
+        const token = neo().sessionGet('token');
 
         if (token) {
             return neo()
@@ -29,7 +38,7 @@ class Auth
                 })
                 .then((response) => response.status === 200)
                 .catch(error => {
-                    localStorage.removeItem('token');
+                    this.logout();
                 });
         }
 

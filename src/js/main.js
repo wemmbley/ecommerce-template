@@ -1,8 +1,9 @@
-function isAuth() {
-    return false;
-}
+// Icons.
+const searchIcon = document.getElementById('search');
+const cartIcon = document.getElementById('cart');
 
-Search.fromEl(document.getElementById('search'));
+// Plugins.
+Search.fromEl(searchIcon);
 
 const ShoppingCart = new Cart();
-ShoppingCart.fromEl(document.getElementById('cart'));
+ShoppingCart.fromEl(cartIcon);

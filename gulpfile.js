@@ -23,13 +23,11 @@ exports.deploy = tasks.deploy;
 exports.dotenv = tasks.dotenv;
 
 exports.default = gulp.parallel(
-  exports.libs_style,
   exports.svg_css,
   exports.ttf,
   exports.ttf2,
   exports.fonts,
   exports.style,
-  exports.libs_js,
   exports.dev_js,
   exports.rastr,
   exports.webp,
@@ -40,13 +38,11 @@ exports.default = gulp.parallel(
   exports.watch
 )
 exports.dev_php = gulp.parallel(
-  exports.libs_style,
   exports.svg_css,
   exports.ttf,
   exports.ttf2,
   exports.fonts,
   exports.style,
-  exports.libs_js,
   exports.dev_js,
   exports.rastr,
   exports.webp,

@@ -6,29 +6,49 @@ class Cart
     productsInCart = 0;
     singleProductCounterTimer = null;
 
-    fromEl(cartBtn) {
+    constructor()
+    {
         this.$cartCounter = $('#cartCounter');
         this.$container = $('.cart-wrapper');
+    }
 
+    fromEl(cartBtn)
+    {
+        this.initModal(cartBtn);
+        this.importProducts();
+
+        // this.removeAllProducts();
+        // this.insertTestProduct();
+    }
+
+    // ========================================================================================
+    //  Modal.
+    // ========================================================================================
+    initModal(cartBtn)
+    {
         const $container = $(this.$container);
 
-        $(cartBtn).on('click', function (event) {
-            $container.show();
-        })
+        this.tapCartButton(cartBtn, $container);
+        this.tapToClose(cartBtn, $container);
+        this.tapCloseButton($container);
+    }
 
+    tapToClose(cartBtn, $container)
+    {
         neo(neo().select('.cart-wrapper')).on('userCancelAction', () => {
             $container.hide();
         }, {skipElements: [cartBtn]});
-
-        this.closeButton($container);
-        this.loadProducts();
     }
 
-    loadProducts() {
-
+    tapCartButton(cartBtn, $container)
+    {
+        $(cartBtn).on('click', function (event) {
+            $container.show();
+        })
     }
 
-    closeButton(container) {
+    tapCloseButton(container)
+    {
         $('#closeCart').on('click', function () {
             container.hide();
         });
@@ -56,6 +76,10 @@ class Cart
 
     decreaseCartCounter(count = 1)
     {
+        if(this.productsInCart <= 0) {
+            return;
+        }
+
         this.productsInCart -= count;
 
         this.increaseCartCounter(-count);
@@ -64,8 +88,13 @@ class Cart
     // ========================================================================================
     //  Products.
     // ========================================================================================
+    importProducts() {
+        this.importProductsFromSession();
+    }
+
     addProduct(product)
     {
+        console.log('addProduct', product)
         let $product = this.makeProductNode(product);
 
         $('#emptyCartMessage').hide();
@@ -75,7 +104,10 @@ class Cart
         this.initBinProduct($product);
         this.showCartCounter();
         this.increaseCartCounter();
-        this.updateTotalPrices(product);
+
+        if(!empty(product.total)) {
+            this.updateTotalPrices(product.total);
+        }
     }
 
     makeProductNode(product)
@@ -119,13 +151,11 @@ class Cart
             count: product.cart.count,
         };
 
-        Auth.check().then((isAuth) => {
-            if(isAuth) {
-                neo().ajax(env.CART_LOGGED_USER_ADD_PRODUCT_ROUTE, 'POST', productInfo)
-            } else {
-                neo().sessionPush('cartProducts', productInfo);
-            }
-        });
+        if(Auth.check()) {
+            neo().ajax(env.CART_LOGGED_USER_ADD_PRODUCT_ROUTE, 'POST', productInfo)
+        } else {
+            neo().sessionPush('cartProducts', productInfo);
+        }
     }
 
     initBinProduct($product)
@@ -137,21 +167,23 @@ class Cart
         });
     }
 
-    updateTotalPrices(product)
+    updateTotalPrices(total)
     {
+        console.log('updateTotalPrices', total)
         let $resultPrice = this.$container.find('.result-price');
-
-        if(typeof product.total.value === 'undefined') {
+        console.log('updateTotalPrices total.value', total.value, empty(total.value))
+        if(empty(total.value)) {
             return;
         }
 
         $resultPrice.attr('style', 'display: flex !important');
-        $resultPrice.find('.new-price').text(product.total.value + ' ' + product.total.unit);
+        console.log($resultPrice)
+        $resultPrice.find('.new-price').text(total.value + ' ' + total.unit);
 
-        if(typeof product.total.valueWithoutDiscount !== 'undefined') {
+        if(!empty(total.valueWithoutDiscount)) {
             let $oldPrice = $resultPrice.find('.old-price');
 
-            $oldPrice.text(product.total.valueWithoutDiscount + ' ' + product.total.unit);
+            $oldPrice.text(total.valueWithoutDiscount + ' ' + total.unit);
             $oldPrice.attr('style', 'display: flex !important');
         }
 
@@ -220,21 +252,19 @@ class Cart
         }, env.CART_LOGGED_USER_SET_SINGLE_PRODUCT_COUNT_SLEEP);
     }
 
-    removeProduct(productId)
+    removeProduct(productId, fetchNewTotal = true)
     {
         $('*[data-product-id="' + productId + '"]').remove();
 
         this.decreaseCartCounter();
 
-        Auth.check().then((isAuth) => {
-            if(isAuth) {
-                neo().ajax(env.CART_LOGGED_USER_REMOVE_PRODUCT_ROUTE, 'POST', {
-                    id: productId,
-                })
-            } else {
-                neo().sessionRemoveItem('cartProducts', productId, 'id');
-            }
-        });
+        if(Auth.check()) {
+            neo().ajax(env.CART_LOGGED_USER_REMOVE_PRODUCT_ROUTE, 'POST', {
+                id: productId,
+            })
+        } else {
+            neo().sessionRemoveItem('cartProducts', productId, 'id');
+        }
 
         if(this.productsCountInCart === 0) {
             this.hideCartCounter();
@@ -253,33 +283,102 @@ class Cart
             cartProducts.push($(el).data('productId'));
         });
 
-        this.fetchNewPricesAfterProductRemoved({
-            removedProductId: productId,
-            cartProducts: cartProducts,
-        });
+        if(fetchNewTotal) {
+            this.fetchNewPricesAfterProductRemoved({
+                removedProductId: productId,
+                cartProducts: cartProducts,
+            });
+        }
+    }
+
+    removeAllProducts()
+    {
+        const products = neo().sessionGet('cartProducts');
+        console.log('removeAllProducts', products)
+
+        if(empty(products)) {
+            return;
+        }
+
+        products.forEach((product) => {
+            this.removeProduct(product.id, false);
+        })
+
+        if(Auth.check()) {
+            neo().ajax(env().CART_LOGGED_USER_CLEAR_CART);
+        }
     }
 
     fetchNewPricesAfterProductRemoved(params)
     {
         neo()
-            .ajax(env.CART_REMOVE_PRODUCT_ROUTE, 'POST', params)
+            .ajax(env.CART_LOGGED_USER_REMOVE_PRODUCT_ROUTE, 'POST', params)
             .then((response) => response.json())
-            .then((json) => {
-                this.updateTotalPrices(json);
+            .then((product) => {
+                console.log('fetchNewPricesAfterProductRemoved', product)
+                this.updateTotalPrices(product.total);
             });
     }
 
-    importProducts(products)
+    importProductsFromSession()
     {
-        products.forEach((product) => {
-            this.addProduct(product);
-        });
+        let productsToRetrieve = neo().sessionGet('cartProducts');
+        console.log('importProductsFromSession', productsToRetrieve)
 
-        this.updateTotalPrices(products);
+        if(!empty(productsToRetrieve) && !Auth.check()) {
+            console.log('importProductsFromSession if', !empty(productsToRetrieve), !Auth.check())
+            this.removeAllProducts();
+
+            neo()
+                .ajax(env.CART_LOGGED_USER_IMPORT_PRODUCTS_ROUTE)
+                .then((response) => response.json())
+                .then((response) => {
+                    const products = response.products;
+                    const total = response.total;
+
+                    products.forEach((product) => {
+                        console.log('importProductsFromSession product', product)
+                        this.addProduct(product);
+                    });
+
+                    this.updateTotalPrices(total)
+                });
+        }
     }
 
-    loadProductsFromSession()
+    insertTestProduct()
     {
-
+        console.log('insert test product')
+        ShoppingCart.addProduct({
+            "id": 1,
+            "title": "accusamus beatae ad facilis cum similique qui sunt",
+            "url": "https://via.placeholder.com/600/92c952",
+            "image": {
+                "preview": "https://via.placeholder.com/150/92c952",
+                "medium": "https://via.placeholder.com/150/92c952",
+                "original": "https://via.placeholder.com/150/92c952",
+                "altText": "lorem ipsumed",
+            },
+            "price": {
+                "value": "7800",
+                "unit": "UAH"
+            },
+            "discount": {
+                "oldPrice": "12000",
+                "newPrice": "7800",
+                "unit": "UAH",
+                "discountEnds": "2024-12-12 00:00:00"
+            },
+            "total": {
+                "value": "9 000",
+                "valueWithoutDiscount": "11 900",
+                "unit": "UAH",
+            },
+            "cart": {
+                "count": 3,
+                "min": 2,
+                "max": 5,
+            },
+        });
     }
 }

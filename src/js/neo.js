@@ -2,6 +2,18 @@ function neo(el) {
     return new Neo(el);
 }
 
+function empty(variable)
+{
+    return typeof variable === 'undefined'
+        || variable === null
+        || variable === undefined
+        || variable === false
+        || variable === 0
+        || variable === ''
+        || variable === []
+        || variable === {};
+}
+
 class Neo {
     el;
     options;
@@ -221,7 +233,7 @@ class Neo {
         sessionItem = JSON.parse(sessionItem);
 
         sessionItem = sessionItem.filter(currentItem => {
-            if(objItem !== null) {
+            if(!empty(objItem)) {
                 return currentItem[objItem] !== item;
             }
 
