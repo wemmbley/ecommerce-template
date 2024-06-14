@@ -1,5 +1,7 @@
 class Cart
 {
+    testProductId = 10000;
+
     $container = null;
     $cartCounter = null;
 
@@ -18,7 +20,10 @@ class Cart
         this.importProducts();
 
         // this.removeAllProducts();
-        // this.insertTestProduct();
+        this.insertTestProduct();
+        this.insertTestProduct();
+        this.insertTestProduct();
+        this.insertTestProduct();
     }
 
     // ========================================================================================
@@ -71,7 +76,7 @@ class Cart
     {
         this.productsInCart += count;
 
-        this.$cartCounter.text(parseInt(this.$cartCounter.text()) + count);
+        this.$cartCounter.text(this.productsInCart);
     }
 
     decreaseCartCounter(count = 1)
@@ -79,8 +84,6 @@ class Cart
         if(this.productsInCart <= 0) {
             return;
         }
-
-        this.productsInCart -= count;
 
         this.increaseCartCounter(-count);
     }
@@ -266,7 +269,7 @@ class Cart
             neo().sessionRemoveItem('cartProducts', productId, 'id');
         }
 
-        if(this.productsCountInCart === 0) {
+        if(this.productsInCart === 0) {
             this.hideCartCounter();
 
             $('#emptyCartMessage').attr('style', 'display: flex');
@@ -350,7 +353,7 @@ class Cart
     {
         console.log('insert test product')
         ShoppingCart.addProduct({
-            "id": 1,
+            "id": 'testProduct' + this.testProductId++,
             "title": "accusamus beatae ad facilis cum similique qui sunt",
             "url": "https://via.placeholder.com/600/92c952",
             "image": {
